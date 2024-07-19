@@ -1,9 +1,14 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image, SafeAreaView } from 'react-native';
 import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { HomeScreenNavigationProp } from '../types'; 
 
-export default function Homescreen() {
+interface Props {
+  navigation: HomeScreenNavigationProp;
+}
+
+const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.parentContainer}>
+    <View style={styles.parentContainer}>
       {/* Container 1 for background image and logo */}
       <View style={styles.container1}>
         <Image
@@ -22,18 +27,24 @@ export default function Homescreen() {
       {/* Container 2 for login and signup buttons */}
       <View style={styles.container2}>
         {/* Login Button */}
-        <TouchableOpacity activeOpacity={0.6} style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Login')} // Navigate to Login screen
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
         {/* Sign Up Button */}
-        <TouchableOpacity activeOpacity={0.6} style={styles.button2}>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => navigation.navigate('Signup')} // Navigate to Signup screen
+        >
           <Text style={styles.button2Text}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   parentContainer: {
@@ -53,8 +64,6 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    width: '100%',
-    height: '100%',
   },
   logoImage: {
     width: '70%',
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#8F1413',
-    padding: 10,
+    padding: 8,
     height: 45,
     width: 170,
     borderRadius: 20,
@@ -87,7 +96,7 @@ const styles = StyleSheet.create({
   },
   button2: {
     backgroundColor: '#FFDC52FF',
-    padding: 10,
+    padding: 8,
     height: 45,
     width: 170,
     borderRadius: 20,
@@ -101,3 +110,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default HomeScreen;

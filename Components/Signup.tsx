@@ -1,19 +1,15 @@
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-  TextInput,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-} from 'react-native';
-import React, {useState} from 'react';
-import { Icon } from 'react-native-vector-icons/Icon';
+import React, { useState } from 'react';
+import {StyleSheet,TouchableOpacity,Text,View,TextInput,SafeAreaView,KeyboardAvoidingView,Platform,ScrollView,} from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types'; 
 
-export default function Signup() {
+type SignupScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Signup'>;
+
+const Signup = () => {
+  const navigation = useNavigation<SignupScreenNavigationProp>();
+
   // State Management
   const [name, setName] = useState('');
   const [campusName, setCampusName] = useState('');
@@ -27,20 +23,20 @@ export default function Signup() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardAvoidingView}>
         <ScrollView contentContainerStyle={styles.scrollView}>
-          {/* Container 1 for logo and back button  */}
+          {/* Container 1 for logo and back button */}
           <View style={styles.container1}>
             {/* Back Button */}
-            <TouchableOpacity style={{marginLeft: 20}}>
-             <Icons name='arrow-left' size={40} color='white' />
+            <TouchableOpacity style={{ marginLeft: 20 }} onPress={() => navigation.goBack()}>
+              <Icons name='arrow-left' size={40} color='white' />
             </TouchableOpacity>
-            {/* Login Logo  */}
-            <Text style={{fontSize: 40, color: 'white', marginRight: 50}}>
+            {/* Login Logo */}
+            <Text style={{ fontSize: 40, color: 'white', marginRight: 50 }}>
               New Account
             </Text>
           </View>
-          {/* Container 2 for name, campus name, mobile number, and password inputs  */}
+          {/* Container 2 for name, campus name, mobile number, and password inputs */}
           <View style={styles.container2}>
-            {/* Name  */}
+            {/* Name */}
             <Text style={styles.text}>Name</Text>
             <TextInput
               style={styles.input}
@@ -49,7 +45,7 @@ export default function Signup() {
               placeholder="Enter your name"
               placeholderTextColor="black"
             />
-            {/* Campus Name  */}
+            {/* Campus Name */}
             <Text style={styles.text}>Campus Name</Text>
             <TextInput
               style={styles.input}
@@ -58,7 +54,7 @@ export default function Signup() {
               placeholder="Enter your campus name"
               placeholderTextColor="black"
             />
-            {/* Mobile Number  */}
+            {/* Mobile Number */}
             <Text style={styles.text}>Mobile Number</Text>
             <TextInput
               style={styles.input}
@@ -68,7 +64,7 @@ export default function Signup() {
               placeholderTextColor="black"
               keyboardType="phone-pad"
             />
-            {/* Password  */}
+            {/* Password */}
             <Text style={styles.text}>Password</Text>
             <View style={styles.passwordContainer}>
               <TextInput
@@ -79,26 +75,32 @@ export default function Signup() {
                 placeholderTextColor="black"
                 secureTextEntry={!isPasswordVisible}
               />
-              {/* Icon for show password  */}
+              {/* Icon for show password */}
               <TouchableOpacity
                 style={styles.showPasswordButton}
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
                 <Icons name='eye' size={25} color='red' />
               </TouchableOpacity>
             </View>
-            {/* Forget Password  */}
+            {/* Forget Password */}
             <TouchableOpacity>
               <Text style={styles.fptext}>Forget password</Text>
             </TouchableOpacity>
           </View>
-          {/* Container 3 for login and signup button   */}
+          {/* Container 3 for login and signup button */}
           <View style={styles.container3}>
-            {/* Signup button  */}
-            <TouchableOpacity activeOpacity={0.6} style={styles.button}>
+            {/* Signup button */}
+            <TouchableOpacity
+              activeOpacity={0.6}
+              style={styles.button}
+              onPress={() => {
+                // Handle signup logic here rudransh
+              }}
+            >
               <Text style={styles.buttonText}>SignUp</Text>
             </TouchableOpacity>
-            {/* Login button  */}
-            <TouchableOpacity>
+            {/* Login button */}
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
               <Text style={styles.signup}>Already have an account? Login</Text>
             </TouchableOpacity>
           </View>
@@ -106,7 +108,7 @@ export default function Signup() {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
@@ -129,21 +131,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   container2: {
-   flex: 1,
-   marginTop: -70, 
-   backgroundColor: '#fff',
-   borderTopLeftRadius: 25,  
-   borderTopRightRadius: 25,  
+    flex: 1,
+    marginTop: -70,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   container3: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10,
-  },
-  backButton: {
-    fontSize: 25,
-    color: '#fff',
+    paddingBottom: 20,
   },
   text: {
     fontSize: 25,
@@ -211,3 +209,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default Signup;
