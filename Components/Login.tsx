@@ -79,10 +79,7 @@ export default function Login() {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.button}
-              onPress={() => {
-                // Handle login logic here
-              }}
-            >
+                onPress={() => navigation.navigate('Orders')}>
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             {/* Signup button */}
@@ -169,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fptext: {
-    paddingLeft: 230,
+    paddingLeft: 280,
     color: 'red',
     fontWeight: '500',
   },

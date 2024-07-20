@@ -93,9 +93,7 @@ const Signup = () => {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.button}
-              onPress={() => {
-                // Handle signup logic here rudransh
-              }}
+                onPress={() => navigation.navigate('Orders')} 
             >
               <Text style={styles.buttonText}>SignUp</Text>
             </TouchableOpacity>
@@ -184,7 +182,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fptext: {
-    paddingLeft: 230,
+    paddingLeft: 280,
     color: 'red',
     fontWeight: '500',
   },

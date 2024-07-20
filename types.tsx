@@ -1,13 +1,15 @@
-// types.ts
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-// Define the types for your stack navigator
 export type RootStackParamList = {
   Homescreen: undefined;
   Login: undefined;
   Signup: undefined;
+  Orders: undefined; 
+  PendingDeliveries: undefined; 
 };
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Homescreen'>;
 export type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 export type SignupScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Signup'>;
+export type OrdersScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Orders'>;
+export type PendingDeliveriesScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'PendingDeliveries'>;
