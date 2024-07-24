@@ -82,33 +82,41 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#8F1413',
-    padding: 8,
-    height: 45,
-    width: 170,
-    borderRadius: 20,
+    padding: 12,  // Increased padding for a larger button
+    height: 60,   // Increased height
+    width: 200,   // Increased width
+    borderRadius: 25,  // Increased border radius for larger buttons
     marginTop: 20,
+    justifyContent: 'center', // Center content vertically
+    alignItems: 'center',     // Center content horizontally
+    borderWidth: 1,   // 1px border width
+    borderColor: '#000', // Border color
   },
   buttonText: {
-    fontSize: 20,
-    color: '#FFDC52FF',
-    fontWeight: 'bold',
+    fontSize: 26, // Increased font size
+    color: '#FFD32C',
+    fontWeight: 'bold', // Changed from 'black' to 'bold' for consistency
     textAlign: 'center',
-    justifyContent: 'center',
+    fontFamily: 'Battambang', // Font family
   },
   button2: {
-    backgroundColor: '#FFDC52FF',
-    padding: 8,
-    height: 45,
-    width: 170,
-    borderRadius: 20,
+    backgroundColor: '#FFD32C',
+    padding: 12,  // Increased padding for a larger button
+    height: 60,   // Increased height
+    width: 200,   // Increased width
+    borderRadius: 25,  // Increased border radius for larger buttons
     marginTop: 20,
+    justifyContent: 'center', // Center content vertically
+    alignItems: 'center',     // Center content horizontally
+    borderWidth: 1,   // 1px border width
+    borderColor: '#000', // Border color
   },
   button2Text: {
-    fontSize: 20,
+    fontSize: 26, // Increased font size
     color: '#8F1413',
-    fontWeight: 'bold',
+    fontWeight: 'bold', // Changed from 'black' to 'bold' for consistency
     textAlign: 'center',
-    justifyContent: 'center',
+    fontFamily: 'Battambang', // Font family
   },
 });
 
