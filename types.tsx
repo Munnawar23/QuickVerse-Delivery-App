@@ -6,6 +6,7 @@ export type RootStackParamList = {
   Signup: undefined;
   Orders: undefined; 
   PendingDeliveries: undefined; 
+  Profile: undefined;
 };
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Homescreen'>;
@@ -13,3 +14,4 @@ export type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParam
 export type SignupScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Signup'>;
 export type OrdersScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Orders'>;
 export type PendingDeliveriesScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'PendingDeliveries'>;
+export type ProfileScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Profile'>;

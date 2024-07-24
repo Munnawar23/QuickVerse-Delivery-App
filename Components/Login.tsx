@@ -65,7 +65,7 @@ export default function Login() {
                 style={styles.showPasswordButton}
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}
               >
-                <Icons name='eye' size={30} color='red' />
+                <Icons name={!isPasswordVisible ? "eye-with-line" : "eye"} size={30} color='red' />
               </TouchableOpacity>
             </View>
             {/* Forget Password */}

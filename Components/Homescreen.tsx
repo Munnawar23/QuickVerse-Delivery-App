@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { HomeScreenNavigationProp } from '../types'; 
 
+
 interface Props {
   navigation: HomeScreenNavigationProp;
 }

@@ -15,7 +15,9 @@ const Signup = () => {
   const [campusName, setCampusName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [confirmPassword, setconfirmPassword] = useState('');
+  const [isconfirmPasswordVisible, setIsconfirmPasswordVisible] = useState<boolean>(false);
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
@@ -79,13 +81,30 @@ const Signup = () => {
               <TouchableOpacity
                 style={styles.showPasswordButton}
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-                <Icons name='eye' size={25} color='red' />
+                <Icons name={!isPasswordVisible ? "eye-with-line" : "eye"} size={25} color='red' />
               </TouchableOpacity>
             </View>
             {/* Forget Password */}
             <TouchableOpacity>
-              <Text style={styles.fptext}>Forget password</Text>
+              {/* <Text style={styles.fptext}>Forget password</Text> */}
             </TouchableOpacity>
+            <Text style={styles.text}>Confirm Password</Text>
+            <View style={styles.passwordContainer}>
+              <TextInput
+                style={styles.passwordInput}
+                onChangeText={setconfirmPassword}
+                value={confirmPassword}
+                placeholder="Enter confirm password"
+                placeholderTextColor="black"
+                secureTextEntry={!isPasswordVisible}
+              />
+              {/* Icon for show password */}
+              <TouchableOpacity
+                style={styles.showPasswordButton}
+                onPress={() => setIsconfirmPasswordVisible ( !isconfirmPasswordVisible ) }>
+                <Icons name= {!isconfirmPasswordVisible ? "eye-with-line" : "eye"} size={25} color='red' />
+              </TouchableOpacity>
+            </View>
           </View>
           {/* Container 3 for login and signup button */}
           <View style={styles.container3}>
@@ -122,7 +141,7 @@ const styles = StyleSheet.create({
   },
   container1: {
     flexGrow: 1,
-    height: '34%',
+    height: '30%',
     backgroundColor: '#FFDC52',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -142,7 +161,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   text: {
-    fontSize: 25,
+    fontSize: 20,
     color: '#000',
     marginLeft: 30,
     marginTop: 10,
