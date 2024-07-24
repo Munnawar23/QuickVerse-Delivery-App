@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, TextInput, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, TextInput, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -27,13 +26,13 @@ export default function Login() {
           <View style={styles.container1}>
             {/* Back Button */}
             <TouchableOpacity
-              style={{ marginLeft: 20 }}
+              style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
               <Icons name='arrow-left' size={40} color='white' />
             </TouchableOpacity>
             {/* Login Logo */}
-            <Text style={{ fontSize: 50, color: 'white', marginRight: 120 }}>
+            <Text style={styles.loginText}>
               Login
             </Text>
           </View>
@@ -41,17 +40,21 @@ export default function Login() {
           <View style={styles.container2}>
             {/* Mobile Number */}
             <Text style={styles.text}>Mobile Number</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={setMobileNumber}
-              value={mobileNumber}
-              placeholder="Enter mobile number"
-              placeholderTextColor="black"
-              keyboardType="phone-pad"
-            />
+            <View style={styles.inputContainer}>
+              <Icons name='phone' size={30} color='black' style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                onChangeText={setMobileNumber}
+                value={mobileNumber}
+                placeholder="Enter mobile number"
+                placeholderTextColor="black"
+                keyboardType="phone-pad"
+              />
+            </View>
             {/* Password */}
             <Text style={styles.text}>Password</Text>
             <View style={styles.passwordContainer}>
+              <Icons name='lock' size={30} color='black' style={styles.inputIcon} />
               <TextInput
                 style={styles.passwordInput}
                 onChangeText={setPassword}
@@ -79,7 +82,8 @@ export default function Login() {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.button}
-                onPress={() => navigation.navigate('Orders')}>
+              onPress={() => navigation.navigate('Orders')}
+            >
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             {/* Signup button */}
@@ -109,8 +113,17 @@ const styles = StyleSheet.create({
     height: '30%',
     backgroundColor: '#FFDC52',
     alignItems: 'center',
-    justifyContent: 'space-between',
     flexDirection: 'row',
+    justifyContent: 'center', // Center items horizontally
+  },
+  backButton: {
+    position: 'absolute',
+    left: 20,
+  },
+  loginText: {
+    fontSize: 50,
+    color: 'white',
+    fontFamily: 'Battambang-Bold',
   },
   container2: {
     height: '50%',
@@ -131,18 +144,27 @@ const styles = StyleSheet.create({
     color: '#000',
     marginLeft: 30,
     marginTop: 20,
+    fontFamily: 'Battambang-Regular',
   },
-  input: {
-    height: 60,
-    borderColor: '#fff',
-    borderWidth: 1,
-    borderRadius: 10,
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 30,
     marginRight: 20,
     marginTop: 10,
-    backgroundColor: '#FFDC5299',
-    paddingRight: 50,
+    borderColor: '#000',
+    borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 211, 44, 0.5)',
     paddingLeft: 10,
+  },
+  inputIcon: {
+    marginRight: 10,
+  },
+  input: {
+    height: 60,
+    flex: 1,
+    fontFamily: 'Battambang-Regular',
   },
   passwordContainer: {
     flexDirection: 'row',
@@ -150,15 +172,16 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 20,
     marginTop: 10,
-    backgroundColor: '#FFDC5299',
-    borderRadius: 10,
-    borderColor: '#fff',
+    borderColor: '#000',
     borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 211, 44, 0.5)',
+    paddingLeft: 10,
   },
   passwordInput: {
     flex: 1,
     height: 60,
-    paddingLeft: 10,
+    fontFamily: 'Battambang-Regular',
   },
   showPasswordButton: {
     padding: 10,
@@ -167,27 +190,34 @@ const styles = StyleSheet.create({
   },
   fptext: {
     paddingLeft: 280,
-    color: 'red',
+    color: '#8F1413',
     fontWeight: '500',
+    fontFamily: 'Battambang-Regular',
   },
   signup: {
     color: 'red',
     fontWeight: '500',
     marginTop: 5,
+    fontFamily: 'Battambang-Regular',
   },
   button: {
     backgroundColor: '#8F1413',
     padding: 8,
-    height: 45,
-    width: 170,
+    height: 50,
+    width: 180,
     borderRadius: 20,
     marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#000',
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: 24,
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
     justifyContent: 'center',
+    fontFamily: 'Battambang-Bold',
   },
 });
