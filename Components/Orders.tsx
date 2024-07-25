@@ -45,9 +45,9 @@ export default function Orders() {
                   <Text style={styles.delhiveriesText}>Pending Deliveries</Text>
                 </TouchableOpacity>
                 {/* Completed orders  */}
-                <View style={styles.card3}>
+                <TouchableOpacity style={styles.card3}>
                   <Text style={styles.completedText}>Completed Orders</Text>
-                </View>
+                </TouchableOpacity>
               </View>
             </View>
             {/* Container 3  */}

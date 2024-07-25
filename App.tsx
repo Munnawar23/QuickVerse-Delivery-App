@@ -6,7 +6,6 @@ import Homescreen from './Components/Homescreen';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Orders from './Components/Orders';
-import PendingDeliveries from './Components/PendingDeliveries';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +17,6 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
         <Stack.Screen name="Signup"component={Signup} options={{ headerShown: false }}/>
         <Stack.Screen name="Orders" component={Orders} options={{headerShown: false}}/>
-        <Stack.Screen name="PendingDeliveries" component={PendingDeliveries} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
