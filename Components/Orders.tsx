@@ -2,7 +2,7 @@ import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View, Switch 
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
-import Icons from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Orders() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -17,16 +17,16 @@ export default function Orders() {
             {/* Container 1 */}
             <View style={styles.container1}>
               {/* User Profile */}
-              <TouchableOpacity>
-                <Icons name='user' size={40} color='black' />
+              <TouchableOpacity>            
+              <Ionicons name="person-circle" size={40} color="black" />
               </TouchableOpacity>
               {/* User Name */}
               <Text style={styles.profileText}>Roronoa Zoro</Text>
               {/* Switch button */}
               <Switch
-                trackColor={{ false: 'red', true: '#90EE90' }}
+                trackColor={{ false: 'red', true: '#8F1413' }}
                 thumbColor={isSwitchOn ? '#fff' : '#fff'}
-                ios_backgroundColor="#90EE90"
+                ios_backgroundColor="#8F1413"
                 onValueChange={toggleSwitch}
                 value={isSwitchOn}
                 style={styles.switch}
@@ -34,73 +34,73 @@ export default function Orders() {
             </View>
             {/* Container 2 */}
             <View style={styles.container2}>
-              {/* Order Catagory  */}
+              {/* Order Category  */}
               <View style={styles.orderCategory}>
                 {/* Pending orders  */}
                 <View style={styles.card1}>
-                    <Text style={styles.orderText}>Pending orders</Text>
+                  <Text style={styles.orderText}>Pending Orders</Text>
                 </View>
                 {/* Pending Deliveries  */}
                 <TouchableOpacity style={styles.card2}>
-                    <Text style={styles.orderText}>Pending Deliveries</Text>
+                  <Text style={styles.delhiveriesText}>Pending Deliveries</Text>
                 </TouchableOpacity>
                 {/* Completed orders  */}
                 <View style={styles.card3}>
-                    <Text style={styles.orderText}>Completed orders</Text>
+                  <Text style={styles.completedText}>Completed Orders</Text>
                 </View>
               </View>
             </View>
             {/* Container 3  */}
             <View style={styles.container3}>
-                {/* Pending orders list  */}
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                        No orders
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                        No orders
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                    5 Pending orders
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                    2 Pending orders
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                        No orders
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.rowText}>
-                        Order No.#11111
-                    </Text >
-                    <Text style={styles.rowText2}>
-                        2 Pending orders
-                    </Text>
-                </View>
+              {/* Pending orders list  */}
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                  Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                  No orders
+                </Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                  3 Pending Orders
+                </Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                  2 Pending Orders
+                </Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                   No Orders
+                </Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                  No Orders
+                </Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.rowText}>
+                Restro Name
+                </Text >
+                <Text style={styles.rowText2}>
+                  2 Pending Orders
+                </Text>
+              </View>
             </View>
           </ScrollView>
         </KeyboardAvoidingView>
@@ -142,12 +142,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
- 
   profileText: {
     fontSize: 30,
     fontWeight: '400',
-    color: 'black',
-    marginTop: 10,
+    color: '#020202',
+    marginTop: -10,
+    fontFamily: 'Battambang-Bold', // Applying Battambang font
   },
   switch: {
     transform: [{ scaleX: 2 }, { scaleY: 2 }],
@@ -173,11 +173,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
+    borderWidth: 1, // 1px stroke
+    borderColor: '#000', // Black stroke color
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   card2: {
     height: 80,
     width: 120,
-    backgroundColor: '#FD3E00',
+    backgroundColor: '#F6DAD0',
     borderRadius: 30,
     padding: 10,
     margin: 5,
@@ -186,11 +190,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
+    borderWidth: 1, // 1px stroke
+    borderColor: '#000', // Black stroke color
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   card3: {
     height: 80,
     width: 120,
-    backgroundColor: 'green',
+    backgroundColor: '#F6DAD0',
     borderRadius: 30,
     padding: 10,
     margin: 5,
@@ -199,6 +207,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
+    borderWidth: 1, // 1px stroke
+    borderColor: '#000', // Black stroke color
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   orderText: {
     justifyContent: 'center',
@@ -206,7 +218,30 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     color: '#fff',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Battambang-Regular', // Applying Battambang font
+    lineHeight: 32,
+  },
+  delhiveriesText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 20,
+    fontWeight: '500',
+    color: '#8F1413',
+    textAlign: 'center',
+    fontFamily: 'Battambang-Regular', // Applying Battambang font
+    lineHeight: 32,
+  },
+  completedText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 19,
+    fontWeight: '500',
+    color: '#8F1413',
+    textAlign: 'center',
+    fontFamily: 'Battambang-Regular', // Applying Battambang font
+    lineHeight: 31, // Adjust the line height to reduce vertical spacing
+    // Reduce the bottom margin to bring lines closer
   },
   row: {
     backgroundColor: '#fff',
@@ -221,13 +256,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   rowText: {
-    fontSize:16,
+    fontSize: 16,
     fontWeight: '500',
     color: 'black',
+    fontFamily: 'Battambang-Regular', // Applying Battambang font
   },
   rowText2: {
-    fontSize:17,
+    fontSize: 17,
     fontWeight: '500',
     color: 'red',
+    fontFamily: 'Battambang-Regular', // Applying Battambang font
   },
 });
