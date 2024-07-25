@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { HomeScreenNavigationProp } from '../types'; 
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {HomeScreenNavigationProp} from '../types';
 
 interface Props {
   navigation: HomeScreenNavigationProp;
 }
 
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
+const HomeScreen: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.parentContainer}>
       {/* Container 1 for background image and logo */}
@@ -30,8 +30,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
         <TouchableOpacity
           style={styles.button}
           // onPress={() => navigation.navigate('Login')} // Navigate to Login screen
-          onPress={() => navigation.navigate('Login')} 
-        >
+          onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
@@ -82,14 +81,14 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#8F1413',
-    padding: 12,  // Increased padding for a larger button
-    height: 60,   // Increased height
-    width: 200,   // Increased width
-    borderRadius: 25,  // Increased border radius for larger buttons
+    padding: 12, // Increased padding for a larger button
+    height: 60, // Increased height
+    width: 200, // Increased width
+    borderRadius: 25, // Increased border radius for larger buttons
     marginTop: 20,
     justifyContent: 'center', // Center content vertically
-    alignItems: 'center',     // Center content horizontally
-    borderWidth: 1,   // 1px border width
+    alignItems: 'center', // Center content horizontally
+    borderWidth: 1, // 1px border width
     borderColor: '#000', // Border color
   },
   buttonText: {
@@ -101,14 +100,14 @@ const styles = StyleSheet.create({
   },
   button2: {
     backgroundColor: '#FFD32C',
-    padding: 12,  // Increased padding for a larger button
-    height: 60,   // Increased height
-    width: 200,   // Increased width
-    borderRadius: 25,  // Increased border radius for larger buttons
+    padding: 12, // Increased padding for a larger button
+    height: 60, // Increased height
+    width: 200, // Increased width
+    borderRadius: 25, // Increased border radius for larger buttons
     marginTop: 20,
     justifyContent: 'center', // Center content vertically
-    alignItems: 'center',     // Center content horizontally
-    borderWidth: 1,   // 1px border width
+    alignItems: 'center', // Center content horizontally
+    borderWidth: 1, // 1px border width
     borderColor: '#000', // Border color
   },
   button2Text: {

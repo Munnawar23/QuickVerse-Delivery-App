@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, TextInput, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+  TextInput,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../types';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../types';
 
-type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
+type LoginScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Login'
+>;
 
 export default function Login() {
   const navigation = useNavigation<LoginScreenNavigationProp>();
@@ -19,29 +32,30 @@ export default function Login() {
     <SafeAreaView style={styles.safeAreaContainer}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardAvoidingView}
-      >
+        style={styles.keyboardAvoidingView}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           {/* Container 1 for logo and back button */}
           <View style={styles.container1}>
             {/* Back Button */}
             <TouchableOpacity
               style={styles.backButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Icons name='arrow-left' size={40} color='white' />
+              onPress={() => navigation.goBack()}>
+              <Icons name="arrow-left" size={40} color="white" />
             </TouchableOpacity>
             {/* Login Logo */}
-            <Text style={styles.loginText}>
-              Login
-            </Text>
+            <Text style={styles.loginText}>Login</Text>
           </View>
           {/* Container 2 for mobile number and password inputs */}
           <View style={styles.container2}>
             {/* Mobile Number */}
             <Text style={styles.text}>Mobile Number</Text>
             <View style={styles.inputContainer}>
-              <Icons name='phone' size={30} color='black' style={styles.inputIcon} />
+              <Icons
+                name="phone"
+                size={30}
+                color="black"
+                style={styles.inputIcon}
+              />
               <TextInput
                 style={styles.input}
                 onChangeText={setMobileNumber}
@@ -54,7 +68,12 @@ export default function Login() {
             {/* Password */}
             <Text style={styles.text}>Password</Text>
             <View style={styles.passwordContainer}>
-              <Icons name='lock' size={30} color='black' style={styles.inputIcon} />
+              <Icons
+                name="lock"
+                size={30}
+                color="black"
+                style={styles.inputIcon}
+              />
               <TextInput
                 style={styles.passwordInput}
                 onChangeText={setPassword}
@@ -66,9 +85,8 @@ export default function Login() {
               {/* Icon for show password */}
               <TouchableOpacity
                 style={styles.showPasswordButton}
-                onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-              >
-                <Icons name='eye' size={30} color='red' />
+                onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+                <Icons name="eye" size={30} color="red" />
               </TouchableOpacity>
             </View>
             {/* Forget Password */}
@@ -82,8 +100,7 @@ export default function Login() {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.button}
-              onPress={() => navigation.navigate('Orders')}
-            >
+              onPress={() => navigation.navigate('Orders')}>
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             {/* Signup button */}

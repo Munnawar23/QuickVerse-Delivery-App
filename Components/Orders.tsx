@@ -1,30 +1,43 @@
-import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View, Switch } from 'react-native';
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Switch,
+} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScrollView, GestureHandlerRootView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../types';
 export default function Orders() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
 
   const toggleSwitch = () => setIsSwitchOn(previousState => !previousState);
+  const navigateToProfile = () => {
+    navigation.navigate('Profile'); // Ensure 'Profile' is a valid route
+  };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaView style={styles.safeAreaContainer}>
         <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             {/* Container 1 */}
             <View style={styles.container1}>
               {/* User Profile */}
-              <TouchableOpacity>            
-              <Ionicons name="person-circle" size={40} color="black" />
+              <TouchableOpacity onPress={navigateToProfile}>
+                <Ionicons name="person-circle" size={40} color="black" />
               </TouchableOpacity>
               {/* User Name */}
               <Text style={styles.profileText}>Roronoa Zoro</Text>
               {/* Switch button */}
               <Switch
-                trackColor={{ false: 'red', true: '#8F1413' }}
+                trackColor={{false: 'red', true: '#8F1413'}}
                 thumbColor={isSwitchOn ? '#fff' : '#fff'}
                 ios_backgroundColor="#8F1413"
                 onValueChange={toggleSwitch}
@@ -54,52 +67,28 @@ export default function Orders() {
             <View style={styles.container3}>
               {/* Pending orders list  */}
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                  Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                  No orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>No orders</Text>
               </View>
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                  3 Pending Orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>3 Pending Orders</Text>
               </View>
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                  2 Pending Orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>2 Pending Orders</Text>
               </View>
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                   No Orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>No Orders</Text>
               </View>
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                  No Orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>No Orders</Text>
               </View>
               <View style={styles.row}>
-                <Text style={styles.rowText}>
-                Restro Name
-                </Text >
-                <Text style={styles.rowText2}>
-                  2 Pending Orders
-                </Text>
+                <Text style={styles.rowText}>Restro Name</Text>
+                <Text style={styles.rowText2}>2 Pending Orders</Text>
               </View>
             </View>
           </ScrollView>
@@ -150,7 +139,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Battambang-Bold', // Applying Battambang font
   },
   switch: {
-    transform: [{ scaleX: 2 }, { scaleY: 2 }],
+    transform: [{scaleX: 2}, {scaleY: 2}],
   },
   orderCategory: {
     height: 130,
@@ -169,7 +158,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
@@ -186,7 +175,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
@@ -203,7 +192,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,

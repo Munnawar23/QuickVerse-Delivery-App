@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
-import {StyleSheet,TouchableOpacity,Text,View,TextInput,SafeAreaView,KeyboardAvoidingView,Platform,ScrollView,} from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+  TextInput,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../types'; 
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../types';
 
-type SignupScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Signup'>;
+type SignupScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Signup'
+>;
 
 const Signup = () => {
   const navigation = useNavigation<SignupScreenNavigationProp>();
@@ -26,11 +39,13 @@ const Signup = () => {
           {/* Container 1 for logo and back button */}
           <View style={styles.container1}>
             {/* Back Button */}
-            <TouchableOpacity style={{ marginLeft: 20 }} onPress={() => navigation.goBack()}>
-              <Icons name='arrow-left' size={40} color='white' />
+            <TouchableOpacity
+              style={{marginLeft: 20}}
+              onPress={() => navigation.goBack()}>
+              <Icons name="arrow-left" size={40} color="white" />
             </TouchableOpacity>
             {/* Login Logo */}
-            <Text style={{ fontSize: 40, color: 'white', marginRight: 50 }}>
+            <Text style={{fontSize: 40, color: 'white', marginRight: 50}}>
               New Account
             </Text>
           </View>
@@ -79,7 +94,7 @@ const Signup = () => {
               <TouchableOpacity
                 style={styles.showPasswordButton}
                 onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
-                <Icons name='eye' size={25} color='red' />
+                <Icons name="eye" size={25} color="red" />
               </TouchableOpacity>
             </View>
             {/* Forget Password */}
@@ -93,8 +108,7 @@ const Signup = () => {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.button}
-                onPress={() => navigation.navigate('Orders')} 
-            >
+              onPress={() => navigation.navigate('Orders')}>
               <Text style={styles.buttonText}>SignUp</Text>
             </TouchableOpacity>
             {/* Login button */}
