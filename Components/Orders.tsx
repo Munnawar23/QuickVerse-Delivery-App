@@ -12,7 +12,7 @@ import {ScrollView, GestureHandlerRootView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../types';
+import {ProfileScreenNavigationProp, RootStackParamList} from '../types';
 export default function Orders() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const navigation = useNavigation<ProfileScreenNavigationProp>();
@@ -31,15 +31,15 @@ export default function Orders() {
             <View style={styles.container1}>
               {/* User Profile */}
               <TouchableOpacity onPress={navigateToProfile}>
-                <Ionicons name="person-circle" size={40} color="black" />
+                <Ionicons name="person-circle" size={44} color="black" />
               </TouchableOpacity>
               {/* User Name */}
               <Text style={styles.profileText}>Roronoa Zoro</Text>
-              {/* Switch button */}
+              {/* Switch button */}            
               <Switch
-                trackColor={{false: 'red', true: '#8F1413'}}
+                trackColor={{false: 'red', true: '#90EE90'}}
                 thumbColor={isSwitchOn ? '#fff' : '#fff'}
-                ios_backgroundColor="#8F1413"
+                ios_backgroundColor="#90EE90"
                 onValueChange={toggleSwitch}
                 value={isSwitchOn}
                 style={styles.switch}
@@ -132,14 +132,15 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
   },
   profileText: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: '400',
     color: '#020202',
     marginTop: -10,
     fontFamily: 'Battambang-Bold', // Applying Battambang font
   },
   switch: {
-    transform: [{scaleX: 2}, {scaleY: 2}],
+    transform: [{scaleX: 2}, {scaleY: 2.4}],
+    marginTop: -4,
   },
   orderCategory: {
     height: 130,

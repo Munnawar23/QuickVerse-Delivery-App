@@ -31,7 +31,7 @@ export default function Profile() {
             <View style={styles.container1}>
               {/* Back Arrow */}
               <TouchableOpacity>
-                <Icons name="chevron-left" size={40} color="black" />
+                <Icons name="chevron-left" size={44} color="black" />
               </TouchableOpacity>
               {/* Profile Title */}
               <Text style={styles.profileText}>Profile</Text>
@@ -49,7 +49,7 @@ export default function Profile() {
             <View style={styles.container2}>
               <Ionicons
                 name="person-circle"
-                size={40}
+                size={44}
                 color="black"
                 style={styles.userIcon}
               />
@@ -112,7 +112,7 @@ export default function Profile() {
 const styles = StyleSheet.create({
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#8080800F',
   },
   keyboardAvoidingView: {
     flex: 1,
@@ -130,14 +130,15 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   profileText: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: '400',
     color: 'black',
-    marginTop: 10,
+    marginTop: -6,
     fontFamily: 'Battambang-Bold',
   },
   switch: {
-    transform: [{scaleX: 2}, {scaleY: 2}],
+    transform: [{scaleX: 2}, {scaleY: 2.4}],
+    marginTop: -4,   
   },
   container2: {
     backgroundColor: '#F5F5F5',
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Battambang-Bold',
   },
   OrdersContainer: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     height: 80,
     width: '80%',
     marginTop: 20,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Battambang-Bold',
   },
   notificationContainer: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     height: 80,
     width: '80%',
     marginTop: 20,
@@ -231,7 +232,7 @@ const styles = StyleSheet.create({
     transform: [{scaleX: 2}, {scaleY: 2}],
   },
   contactUs: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     height: 80,
     width: '80%',
     marginTop: 20,
