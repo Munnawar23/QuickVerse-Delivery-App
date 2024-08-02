@@ -11,8 +11,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView, GestureHandlerRootView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import {ProfileScreenNavigationProp, RootStackParamList} from '../types';
+
 export default function Orders() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const navigation = useNavigation<ProfileScreenNavigationProp>();
@@ -35,7 +35,7 @@ export default function Orders() {
               </TouchableOpacity>
               {/* User Name */}
               <Text style={styles.profileText}>Roronoa Zoro</Text>
-              {/* Switch button */}            
+              {/* Switch button */}
               <Switch
                 trackColor={{false: 'red', true: '#90EE90'}}
                 thumbColor={isSwitchOn ? '#fff' : '#fff'}
@@ -45,52 +45,61 @@ export default function Orders() {
                 style={styles.switch}
               />
             </View>
-            {/* Container 2 */}
-            <View style={styles.container2}>
-              {/* Order Category  */}
-              <View style={styles.orderCategory}>
-                {/* Pending orders  */}
-                <View style={styles.card1}>
-                  <Text style={styles.orderText}>Pending Orders</Text>
+
+            {/* Conditionally render the data based on the switch state */}
+            {isSwitchOn && (
+              <>
+                {/* Container 2 */}
+                <View style={styles.container2}>
+                  {/* Order Category */}
+                  <View style={styles.orderCategory}>
+                    {/* Pending orders */}
+                    <View style={styles.card1}>
+                      <Text style={styles.orderText}>Pending Orders</Text>
+                    </View>
+                    {/* Pending Deliveries */}
+                    <TouchableOpacity style={styles.card2}>
+                      <Text style={styles.delhiveriesText}>
+                        Pending Deliveries
+                      </Text>
+                    </TouchableOpacity>
+                    {/* Completed orders */}
+                    <TouchableOpacity style={styles.card3}>
+                      <Text style={styles.completedText}>Completed Orders</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                {/* Pending Deliveries  */}
-                <TouchableOpacity style={styles.card2}>
-                  <Text style={styles.delhiveriesText}>Pending Deliveries</Text>
-                </TouchableOpacity>
-                {/* Completed orders  */}
-                <TouchableOpacity style={styles.card3}>
-                  <Text style={styles.completedText}>Completed Orders</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            {/* Container 3  */}
-            <View style={styles.container3}>
-              {/* Pending orders list  */}
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>No orders</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>3 Pending Orders</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>2 Pending Orders</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>No Orders</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>No Orders</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.rowText}>Restro Name</Text>
-                <Text style={styles.rowText2}>2 Pending Orders</Text>
-              </View>
-            </View>
+
+                {/* Container 3 */}
+                <View style={styles.container3}>
+                  {/* Pending orders list */}
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>No orders</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>3 Pending Orders</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>2 Pending Orders</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>No Orders</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>No Orders</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text style={styles.rowText}>Restro Name</Text>
+                    <Text style={styles.rowText2}>2 Pending Orders</Text>
+                  </View>
+                </View>
+              </>
+            )}
           </ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>

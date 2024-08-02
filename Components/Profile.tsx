@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   OrdersContainer: {
     backgroundColor: '#FFFFFF',
-    height: 80,
+    height: 60,
     width: '80%',
     marginTop: 20,
     marginLeft: 40,
@@ -197,6 +197,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'black',
     fontFamily: 'Battambang-Bold',
+    lineHeight: 32,
   },
   orderButton: {
     paddingVertical: 5,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
   },
   notificationContainer: {
     backgroundColor: '#FFFFFF',
-    height: 80,
+    height: 60,
     width: '80%',
     marginTop: 20,
     marginLeft: 40,
@@ -227,13 +228,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'black',
     fontFamily: 'Battambang-Bold',
+    lineHeight: 32,
   },
   notificationSwitch: {
     transform: [{scaleX: 2}, {scaleY: 2}],
   },
   contactUs: {
     backgroundColor: '#FFFFFF',
-    height: 80,
+    height: 60,
     width: '80%',
     marginTop: 20,
     marginLeft: 40,
@@ -248,5 +250,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'black',
     fontFamily: 'Battambang-Bold',
+    lineHeight: 32
   },
 });
