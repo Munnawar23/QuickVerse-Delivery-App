@@ -7,6 +7,8 @@ import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Orders from './Components/Orders';
 import Profile from './Components/Profile';
+import CompletedOrders from './Components/CompletedOrders';
+import PendingDeliveries from './Components/PendingDeliveries';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +40,16 @@ export default function App() {
           name="Profile"
           component={Profile}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CompletedOrders"
+          component={CompletedOrders}
+          options={{headerShown: true}}
+        />
+         <Stack.Screen
+          name="PendingDeliveries"
+          component={PendingDeliveries}
+          options={{headerShown: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>

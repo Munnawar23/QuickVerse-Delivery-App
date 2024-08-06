@@ -11,7 +11,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView, GestureHandlerRootView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import {ProfileScreenNavigationProp, RootStackParamList} from '../types';
+import {ProfileScreenNavigationProp} from '../types';
+import {CompletedOrdersScreenNavigationProp} from '../types';
+import {PendingDeliveriesScreenNavigationProp} from '../types';
 
 export default function Orders() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -19,8 +21,14 @@ export default function Orders() {
 
   const toggleSwitch = () => setIsSwitchOn(previousState => !previousState);
   const navigateToProfile = () => {
-    navigation.navigate('Profile'); // Ensure 'Profile' is a valid route
+    navigation.navigate('Profile'); 
   };
+  const navigateToCompletedOrders = () => {
+    navigation.navigate('CompletedOrders'); 
+  }
+  const navigateToPendingOrders = () => {
+    navigation.navigate('PendingDeliveries'); 
+  }
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
@@ -46,6 +54,13 @@ export default function Orders() {
               />
             </View>
 
+            {/* Completed Orders */}
+            <View style={styles.container2}>
+              <TouchableOpacity style={styles.card3} onPress={navigateToCompletedOrders}>
+                <Text style={styles.completedText}>Completed Orders</Text>
+              </TouchableOpacity>
+            </View>
+
             {/* Conditionally render the data based on the switch state */}
             {isSwitchOn && (
               <>
@@ -54,18 +69,12 @@ export default function Orders() {
                   {/* Order Category */}
                   <View style={styles.orderCategory}>
                     {/* Pending orders */}
-                    <View style={styles.card1}>
+                    <TouchableOpacity style={styles.card1}>
                       <Text style={styles.orderText}>Pending Orders</Text>
-                    </View>
-                    {/* Pending Deliveries */}
-                    <TouchableOpacity style={styles.card2}>
-                      <Text style={styles.delhiveriesText}>
-                        Pending Deliveries
-                      </Text>
                     </TouchableOpacity>
-                    {/* Completed orders */}
-                    <TouchableOpacity style={styles.card3}>
-                      <Text style={styles.completedText}>Completed Orders</Text>
+                    {/* Pending Deliveries */}
+                    <TouchableOpacity style={styles.card2} onPress={navigateToPendingOrders}>
+                      <Text style={styles.deliveriesText}>Pending Deliveries</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -210,6 +219,8 @@ const styles = StyleSheet.create({
     borderColor: '#000', // Black stroke color
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
+    marginVertical: 20,
   },
   orderText: {
     justifyContent: 'center',
@@ -221,7 +232,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Battambang-Regular', // Applying Battambang font
     lineHeight: 32,
   },
-  delhiveriesText: {
+  deliveriesText: {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 20,
